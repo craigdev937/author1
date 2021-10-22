@@ -1,15 +1,17 @@
-import { AuthorAPI } from "./AuthorAPI";
 import { configureStore } from "@reduxjs/toolkit";
+import { AuthorReducer } from "./AuthorSlice";
 
 export const RootReducer = configureStore({
     reducer: {
-        [AuthorAPI.reducerPath]: AuthorAPI.reducer,
-    },
-    middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware()
-            .concat(AuthorAPI.middleware);
-    },
+        authors: AuthorReducer,
+    }
 });
 
+export type RootState = 
+    ReturnType<typeof RootReducer.getState>;
+export type AppDispatch =
+    typeof RootReducer.dispatch;
 
 
+
+    

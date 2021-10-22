@@ -6,6 +6,9 @@ export interface IAuthor {
     info: string
 };
 
+// author: IAuthor
+// authors: IAuthor[]
+
 
 
 
